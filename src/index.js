@@ -103,22 +103,10 @@ topMenuEl.addEventListener("click", function(event) {
   clickedLink.classList.toggle("active");
 
   // Part 5: Adding Submenu Interaction
-  // Find the corresponding menuLinks object for the clicked <a>.
-  // const linkText = event.target.textContent.toLowerCase();
+  // Find the menuLinks object for the clicked <a>.
   const clickedLinkObject = menuLinks.find((linkObject) => linkObject.text === clickedLink.textContent);
-
-  // Check if the clicked <a> element's "link" object has a subLinks property.
-  // if (clickedLinkObject && clickedLinkObject.subLinks) {
-  //   // Set the CSS top property of subMenuEl to 100%.
-  //   subMenuEl.style.top = "100%";
-  //   // Build the submenu using the subLinks array from the clicked link.
-  //   buildSubmenu(clickedLinkObject.subLinks);
-  // } else {
-  //   // Set the CSS top property of subMenuEl to 0.
-  //   subMenuEl.style.top = "0";
-  // }
  
-  // expected outcome?
+  // Check if the clicked <a> element's "link" object has a subLinks property.
   if (clickedLinkObject && clickedLinkObject.subLinks) {
     if (submenuStates[clickedLinkObject.text]) {
       // Submenu is already open, close it
@@ -186,13 +174,6 @@ subMenuEl.addEventListener("click", (event) => {
     link.classList.remove("active");
   });
 
-  // Update the contents of mainEl within an <h1> to the 
-  // contents of the <a> element clicked within subMenuEl.
-  // if (event.target.textContent === "ABOUT") {
-  //   mainEl.innerHTML = "<h1>About</h1>";
-  // } else {
-  //   mainEl.innerHTML = "<h1>" + event.target.innerText + "</h1>";
-  // }
   mainEl.innerHTML = `<h1>${event.target.textContent}</h1>`;
 
   // Log the content of the <a> to verify the handler is working.
